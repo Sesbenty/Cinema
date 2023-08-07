@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+Страница 1
+{% endblock %}
+{% block body %}
+<h1>Posts</h1>
+{% for post in posts %}
+<div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+{% endfor %}
+{% endblock %}

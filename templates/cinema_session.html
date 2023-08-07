@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ movie.movie_name }}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-body">
+            <h2>Сеанс {{ cinema_session.id }}</h2>
+            <ul class="list-unstyled mt-3 mb-4">
+                <li><font style="vertical-align: inherit;">id сеанса: {{ cinema_session.id }}</font></li>
+                <li><font style="vertical-align: inherit;">Время сеанса: {{ cinema_session.session_date }}</font></li>
+                <li><font style="vertical-align: inherit;">Фильм: <a href="/movie/{{ movie.id }}">{{ movie.movie_name }}</a></font></li>
+                <li><font style="vertical-align: inherit;">Время: {{ movie.movie_time }}</font></li>
+                <li><font style="vertical-align: inherit;">Зал: <a href="hall/hall.id">{{ hall.hall_name }}</a></font></li>
+            </ul>
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                      <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">id билета</font></font></th>
+                      <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Цена</font></font></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ticket in tickets %}
+                        <tr>
+                          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ ticket.id }}</font></font></td>
+                          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ ticket.ticket_price }}</font></font></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    <a class="nav-link" href="/session_edit/{{ cinema_session.id }}">Редактировать</a>
+    </div>
+
+</div>
+{% endblock %}

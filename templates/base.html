@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Кинотеатр</font></font></span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/session" class="nav-link active" aria-current="page"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Расписание сеансов</font></font></a></li>
+        <li class="nav-item"><a href="/movie" class="nav-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Фильмы</font></font></a></li>
+        <li class="nav-item"><a href="/hall" class="nav-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Залы</font></font></a></li>
+        <li class="nav-item"><a href="/movie_edit/0" class="nav-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Создать запись о фильме</font></font></a></li>
+        <li class="nav-item"><a href="/session_edit/0" class="nav-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Создать запись о сеансе</font></font></a></li>
+        <li class="nav-item"><a href="/hall_edit/0" class="nav-link"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Создать запись о зале</font></font></a></li>
+      </ul>
+    </header>
+  </div>
+    {% block body %}{% endblock %}
+</body>
+</html>

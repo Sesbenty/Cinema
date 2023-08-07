@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ movie.movie_name }}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-body">
+            <h2>Фильм</h2>
+            <div><font style="">Название: {{ movie.movie_name }}</font></div>
+            <div><font style="">Время: <b>{{ movie.movie_time}}</b></font></div>
+            <font><a href="/movie_edit/{{ movie.id }}">Редактировать</a></font>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

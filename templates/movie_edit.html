@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Информация о фильме</h1>
+    {% if movie.id %}<p>id фильма: {{ movie.id }}</p>{% endif %}
+    <form method="post">
+        <p>Название фильма: <input type="text" name="name" id="name" value="{{ movie.movie_name if movie.movie_name }}"></input></p>
+        <p>Время фильма: <input type="time" step="1" name="time" id="time" max="9:59:59" value="0{{ movie.movie_time if movie.movie_time }}" ></input></p>
+        <input type="submit" name="command" value="Сохранить"></input>
+        <input type="submit" name="command" value="Удалить"></input>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div class="album py-5 bg-light">
+   <div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+{% for hall in halls %}
+<div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+             <h4 class="my-0 fw-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a class="nav-link">{{hall.hall_name}}</a></font></font></h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Рядов: {{ hall.number_row}}</font></font></li>
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Мест: {{ hall.number_place}}</font></font></li>
+            </ul>
+             <button type="button" class="w-100 btn btn-lg btn-outline-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a href="hall_edit/{{ hall.id }}"  class="nav-link">Редактировать информацию</a></font></font></button>
+          </div>
+        </div>
+      </div>
+
+{% endfor %}
+   </div>
+  </div>
+</div>
+{% endblock %}

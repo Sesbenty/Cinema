@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Информация о зале</h1>
+    <p>id зала: {{ hall.id }}</p>
+    <form method="post">
+        <p>Название зала: <input type="text" name="name" id="name" value="{{ hall.hall_name if hall.hall_name }}"></input></p>
+        <p>Количество рядов: <input type="number" name="row" id="row" value="{{ hall.number_row if hall.number_row }}" ></input></p>
+        <p>Количество мест: <input type="number" name="place" id="place" value="{{ hall.number_place if hall.number_place }}" ></input></p>
+        <input type="submit" name="command" value="Сохранить"></input>
+        <input type="submit" name="command" value="Удалить"></input>
+    </form>
+</div>
+{% endblock %}

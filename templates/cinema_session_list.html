@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<section class="py-1 text-center container">
+<form method="post">
+   <p><input type="search" name="search" placeholder="Поиск по фильму">
+   <input type="submit" value="Найти"></p>
+</form>
+</section>
+<div class="album py-5 bg-light">
+   <div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+{% for session_movie in session_movie_list %}
+<div class="col">
+   <div class="card mb-4 rounded-3 shadow-sm">
+      <div class="card-header py-3">
+         <h4 class="my-0 fw-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a href="session/{{ session_movie.cinema_session.id }}" class="nav-link">Сеанс {{session_movie.cinema_session.id }}</a></font></font></h4>
+      </div>
+         <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Фильм: {{ session_movie.movie.movie_name}}</font></font></li>
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Время: {{ session_movie.movie.movie_time}}</font></font></li>
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Дата сеанса: {{ session_movie.cinema_session.session_date}}</font></font></li>
+            </ul>
+             <button type="button" class="w-100 btn btn-lg btn-outline-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a href="session_edit/{{ session_movie.cinema_session.id }}"  class="nav-link">Редактировать информацию</a></font></font></button>
+         </div>
+   </div>
+</div>
+{% endfor %}
+</div>
+   </div>
+</div>
+{% endblock %}

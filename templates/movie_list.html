@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+
+<section class="py-1 text-center container">
+    <div class="">
+      <div class="">
+        <form method="post">
+            <p><input type="search" name="search" placeholder="Поиск фильма">
+            <input type="submit" value="Найти"></p>
+         </form>
+      </div>
+    </div>
+</section>
+<div class="container"><font>Количество фильмов: {{ movies|length }}</font></div>
+<div class="album py-5 bg-light">
+   <div class="container">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+{% for movie in movies %}
+<div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+             <h4 class="my-0 fw-normal"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a href="movie/{{ movie.id }}" class="nav-link">{{movie.movie_name}}</a></font></font></h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Время: {{ movie.movie_time}}</font></font></li>
+            </ul>
+             <button type="button" class="w-100 btn btn-lg btn-outline-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><a href="movie_edit/{{ movie.id }}"  class="nav-link">Редактировать информацию</a></font></font></button>
+          </div>
+        </div>
+      </div>
+
+
+{% endfor %}
+   </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Информация о сеансе</h1>
+    <form method="post">
+        <p>Название фильма:
+            <select required name="movie_id">
+                {% for movie in movies %}
+                <option value="{{ movie.id }}"{% if movie.id==session.movie_id %} selected {% endif %}>{{ movie.movie_name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p>Время фильма: {{ movie.movie_time if movie and movie.movie_time }}</p>
+        <p>id фильма: {{ movie.id if movie and movie.id }}</p>
+        <p>Зал:
+            <select required name="hall_id">
+                {% for hall in halls %}
+                    <option value="{{ hall.id }}"{% if hall.id==session.hall_id %} selected {% endif %}>{{ hall.hall_name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <div><font>Цена билета: <input name="price" id="price" type="number" value="{{ price if price }}"></font></div>
+        <input type="datetime-local" step="2" name="date" id="date" {% if session.session_date %} value="{{ session.session_date.strftime('%Y-%m-%dT%H:%M:%S') }}" {% endif %}></input>
+        <input type="submit" name="command" value="Сохранить"></input>
+        <input type="submit" name="command" value="Удалить"></input>
+    </form>
+</div>
+{% endblock %}
